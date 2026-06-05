@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { User, LogOut, Package, MapPin, KeyRound, ShieldAlert, Chrome, PlayCircle, Eye } from 'lucide-react';
 import { AppContext } from '../context/AppContext';
+import { supabase } from '../supabaseClient';
 
 const Account = () => {
   const { user, orders, logIn, logOut, updateUserRole, updateUserDetails } = useContext(AppContext);
@@ -10,6 +11,7 @@ const Account = () => {
   // Login form inputs
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
+  const [nameInput, setNameInput] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
 
   // Address edit state
@@ -19,11 +21,65 @@ const Account = () => {
   const [zip, setZip] = useState(user?.address?.zip || '');
   const [country, setCountry] = useState(user?.address?.country || 'Germany');
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    if (emailInput && passwordInput) {
-      logIn(emailInput, passwordInput);
+    if (!emailInput || !passwordInput) return;
+
+    if (isRegistering) {
+      const { data, error } = await supabase.auth.signUp({
+        email: emailInput,
+        password: passwordInput,
+      });
+
+      if (error) {
+        alert("Registration failed: " + error.message);
+        return;
+      }
+
+      if (data.user) {
+        await supabase.from('users').insert([{
+          id: data.user.id,
+          email: data.user.email,
+          name: nameInput || emailInput.split('@')[0],
+          role: 'customer'
+        }]);
+        
+        updateUserDetails({
+          loggedIn: true,
+          name: nameInput || emailInput.split('@')[0],
+          email: data.user.email,
+          role: 'customer'
+        });
+      }
+    } else {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: emailInput,
+        password: passwordInput,
+      });
+
+      if (error) {
+        alert("Login failed: " + error.message);
+        return;
+      }
+
+      const { data: profile } = await supabase
+        .from('users')
+        .select('*')
+        .eq('id', data.user.id)
+        .single();
+
+      updateUserDetails({
+        loggedIn: true,
+        name: profile?.name || data.user.email,
+        email: data.user.email,
+        role: profile?.role || 'customer'
+      });
     }
+  };
+
+  const handleLogOut = async () => {
+    await supabase.auth.signOut();
+    logOut();
   };
 
   const handleAddressSave = (e) => {
@@ -65,7 +121,14 @@ const Account = () => {
               {isRegistering && (
                 <div className="form-group">
                   <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', marginBottom: '0.4rem', display: 'block' }}>Full Name</label>
-                  <input type="text" placeholder="Dr. Alexander Thorne" required style={{ width: '100%', padding: '0.75rem 1rem', border: '1px solid var(--border-color)', borderRadius: '8px' }} />
+                  <input 
+                    type="text" 
+                    value={nameInput}
+                    onChange={(e) => setNameInput(e.target.value)}
+                    placeholder="Dr. Alexander Thorne" 
+                    required 
+                    style={{ width: '100%', padding: '0.75rem 1rem', border: '1px solid var(--border-color)', borderRadius: '8px' }} 
+                  />
                 </div>
               )}
               <div className="form-group">
@@ -224,7 +287,7 @@ const Account = () => {
             )}
             
             <button 
-              onClick={logOut}
+              onClick={handleLogOut}
               className="btn btn-secondary"
               style={{
                 display: 'flex',

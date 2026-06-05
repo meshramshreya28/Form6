@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageCircle, Instagram } from 'lucide-react';
+import { supabase } from '../supabaseClient';
 
 const faqItems = [
   {
@@ -25,9 +26,23 @@ const AboutContact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([{ 
+          name: formData.name, 
+          email: formData.email, 
+          message: formData.message 
+        }]);
+
+      if (error) {
+        console.error('Error sending message:', error);
+        alert('Could not send message. Please try again.');
+        return;
+      }
+
       setFormSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setFormSubmitted(false), 4000);

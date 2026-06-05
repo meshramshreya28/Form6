@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ShoppingBag, CreditCard, Tag, Landmark, ShieldCheck, HelpCircle } from 'lucide-react';
 import { AppContext } from '../context/AppContext';
+import { supabase } from '../supabaseClient';
 
 const Checkout = () => {
   const { cart, activeCoupon, couponError, applyCoupon, removeCoupon, placeOrder } = useContext(AppContext);
@@ -75,7 +76,7 @@ const Checkout = () => {
     }
   };
 
-  const handlePlaceOrder = (e) => {
+  const handlePlaceOrder = async (e) => {
     e.preventDefault();
     if (!email || !firstName || !lastName || !street || !city || !zip || !phone) {
       alert("Please complete all shipping address fields.");
@@ -89,9 +90,43 @@ const Checkout = () => {
 
     setIsProcessing(true);
 
-    // Simulate payment loading
-    setTimeout(() => {
+    try {
+      // 1. Insert order into Supabase
+      const { data: orderResponse, error: orderError } = await supabase
+        .from('orders')
+        .insert([{
+          user_email: email,
+          subtotal: subtotal,
+          tax: tax,
+          total: total,
+          status: 'pending',
+          coupon: activeCoupon ? activeCoupon.code : null
+        }])
+        .select();
+
+      if (orderError) throw orderError;
+      
+      const newOrderId = orderResponse[0].id;
+
+      // 2. Insert order items into Supabase
+      const orderItemsToInsert = cart.map(item => ({
+        order_id: newOrderId,
+        product_id: item.product.id.toString(),
+        product_name: item.product.name,
+        flavor: item.flavor || null,
+        quantity: item.quantity,
+        unit_price: item.product.price
+      }));
+
+      const { error: itemsError } = await supabase
+        .from('order_items')
+        .insert(orderItemsToInsert);
+
+      if (itemsError) throw itemsError;
+
+      // 3. Keep local context updated
       const orderData = {
+        id: newOrderId,
         name: `${firstName} ${lastName}`,
         email,
         subtotal,
@@ -108,10 +143,16 @@ const Checkout = () => {
         }
       };
 
-      const newOrder = placeOrder(orderData);
+      placeOrder(orderData); // Still using context for local state
+      
       setIsProcessing(false);
-      navigate(`/order-tracking/${newOrder.id}`);
-    }, 2000);
+      navigate(`/order-tracking/${newOrderId}`);
+      
+    } catch (error) {
+      console.error('Error processing order:', error);
+      alert('Failed to place order: ' + (error.message || JSON.stringify(error)));
+      setIsProcessing(false);
+    }
   };
 
   const discountAmount = activeCoupon ? subtotal * activeCoupon.discount : 0;
