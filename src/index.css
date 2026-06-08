@@ -637,6 +637,11 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+  .product-scroll-inner {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* Product List — Horizontal Scroll */
 .product-section {
@@ -833,6 +838,13 @@ body {
   margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
 .footer-newsletter h3 {
   font-size: 1.5rem;
   font-weight: 500;
@@ -930,6 +942,14 @@ body {
   margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .footer-trust {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}
+
 .trust-badge {
   display: flex;
   align-items: center;
@@ -964,6 +984,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .footer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
 }
 
 .footer-socials {
@@ -1369,7 +1397,7 @@ body {
 
 @media (max-width: 480px) {
   .product-scroll-inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.75rem;
   }
 
@@ -1965,6 +1993,12 @@ body {
 
   .product-grid .product-price {
     font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 }
 
