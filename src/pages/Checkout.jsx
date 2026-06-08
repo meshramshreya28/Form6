@@ -166,7 +166,7 @@ const Checkout = () => {
           Secure Checkout
         </h1>
 
-        <div className="checkout-grid" style={{
+        <div className="checkout-grid tablet-stack" style={{
           display: 'grid',
           gridTemplateColumns: '1.2fr 1fr',
           gap: '4rem',
@@ -208,7 +208,7 @@ const Checkout = () => {
             }}>
               <h3 style={{ fontSize: '1.15rem', fontWeight: '600', marginBottom: '1.25rem' }}>Shipping Address</h3>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+              <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
                   <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', marginBottom: '0.4rem', display: 'block' }}>First Name</label>
                   <input 
@@ -245,7 +245,7 @@ const Checkout = () => {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+              <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
                   <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', marginBottom: '0.4rem', display: 'block' }}>City</label>
                   <input 
@@ -270,7 +270,7 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
                   <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', marginBottom: '0.4rem', display: 'block' }}>Country (EU VAT Rules)</label>
                   <select 
@@ -382,7 +382,7 @@ const Checkout = () => {
                       style={{ width: '100%', padding: '0.75rem 1rem', border: '1px solid var(--border-color)', borderRadius: '8px' }}
                     />
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div>
                       <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', marginBottom: '0.4rem', display: 'block' }}>Expiry Date</label>
                       <input 

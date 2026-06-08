@@ -63,7 +63,7 @@ const AboutContact = () => {
         </section>
 
         {/* FAQ & Contact Form Grid */}
-        <div style={{
+        <div className="tablet-stack" style={{
           display: 'grid',
           gridTemplateColumns: '1.2fr 1fr',
           gap: '4rem',
@@ -194,7 +194,7 @@ const AboutContact = () => {
             <p style={{ opacity: 0.6, fontSize: '0.85rem', margin: '0.25rem 0 0 0' }}>Tag <strong>#Form6Scientific</strong> in your routine to be featured.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
+          <div className="mobile-stack-xs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
             <div style={{ aspectRatio: '1/1', background: '#ccc', borderRadius: '12px', overflow: 'hidden', position: 'relative', cursor: 'pointer' }}>
               <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YXRobGV0ZXx8fHx8fDE2NDYyMjA3MTY&ixlib=rb-1.2.1&q=80&w=400" alt="Instagram Post" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s' }} className="instagram-mock-img" />
               <div style={{ position: 'absolute', bottom: '12px', left: '12px', background: 'rgba(255,255,255,0.9)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.65rem', fontWeight: 'bold' }}>Shop CORE →</div>

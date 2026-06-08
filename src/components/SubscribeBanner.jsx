@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SubscribeBanner = () => {
   return (
-    <section className="subscribe-banner" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', backgroundColor: 'var(--bg-primary)', alignItems: 'stretch', height: 'calc(100vh - 80px)', overflow: 'hidden' }}>
+    <section className="subscribe-banner mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', backgroundColor: 'var(--bg-primary)', alignItems: 'stretch', height: 'calc(100vh - 80px)', overflow: 'hidden' }}>
       <div className="subscribe-text" style={{ padding: '6rem 12%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <span className="micro-header" style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-primary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--text-primary)' }}></span>

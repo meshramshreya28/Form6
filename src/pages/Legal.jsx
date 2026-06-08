@@ -22,7 +22,7 @@ const Legal = () => {
     <main className="legal-page" style={{ paddingTop: 'calc(var(--header-height) + 2rem)', minHeight: '90vh', background: 'var(--bg-primary)' }}>
       <div className="container" style={{ maxWidth: '1000px' }}>
         
-        <div style={{
+        <div className="tablet-stack" style={{
           display: 'grid',
           gridTemplateColumns: '250px 1fr',
           gap: '3rem',

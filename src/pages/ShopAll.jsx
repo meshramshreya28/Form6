@@ -235,7 +235,7 @@ const ShopAll = () => {
 
           {/* Collapsible Advanced Filters (Format, Intensity) */}
           {filtersOpen && (
-            <div className="advanced-filters-panel" style={{
+              <div className="advanced-filters-panel mobile-stack" style={{
               background: 'rgba(44, 47, 31, 0.02)',
               border: '1px solid var(--border-color)',
               borderRadius: '12px',

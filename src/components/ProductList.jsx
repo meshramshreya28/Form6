@@ -29,7 +29,7 @@ const ProductList = ({ hideHeader = false, title = "Clinical Solutions", subtitl
           </div>
         )}
 
-        <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2.5rem' }}>
+        <div className="product-grid mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2.5rem' }}>
           {featuredProducts.map((product, index) => {
             const delayClass = `delay-${(index % 4 + 1) * 100}`;
             return (

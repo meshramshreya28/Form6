@@ -70,7 +70,7 @@ const ProductDetail = () => {
         </button>
 
         {/* PDP Main Content Grid */}
-        <div className="pdp-grid" style={{
+        <div className="pdp-grid tablet-stack" style={{
           display: 'grid',
           gridTemplateColumns: '1.2fr 1fr',
           gap: '4rem',
@@ -179,7 +179,7 @@ const ProductDetail = () => {
             {product.flavors && product.flavors.length > 0 && product.flavors[0] !== "Unflavored (Capsules)" && (
               <div className="pdp-variant-selector" style={{ marginBottom: '2rem' }}>
                 <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', opacity: 0.6, fontWeight: '600' }}>Select Flavor</h4>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
+                <div className="mobile-stack-xs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
                   {product.flavors.map(f => (
                     <button
                       key={f}
@@ -208,7 +208,7 @@ const ProductDetail = () => {
             {product.sizes && product.sizes.length > 0 && (
               <div className="pdp-variant-selector" style={{ marginBottom: '3rem' }}>
                 <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', opacity: 0.6, fontWeight: '600' }}>Select Supply Size</h4>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
+                <div className="mobile-stack-xs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
                   {product.sizes.map(s => (
                     <button
                       key={s}
@@ -466,7 +466,7 @@ const ProductDetail = () => {
 
           <div className="pdp-tabs-content" style={{ fontSize: '1.05rem', lineHeight: '1.8', opacity: 0.85, maxWidth: '900px' }}>
             {activeTab === 'benefits' && (
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem' }}>
+              <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem' }}>
                 <div>
                   <h4 style={{ fontSize: '1.25rem', marginBottom: '1.25rem', color: 'var(--text-primary)', fontWeight: '500', letterSpacing: '-0.01em' }}>Key Clinical Benefits</h4>
                   <ul style={{ paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

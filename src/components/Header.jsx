@@ -159,7 +159,7 @@ const Header = () => {
                           <h3 className="mega-menu-section-title">
                             {link.megaType === 'core' ? 'Form6 CORE (High-Performance)' : 'Form6 PRIME (Daily Longevity)'}
                           </h3>
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                          <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                             {rangeProducts.map(p => (
                               <Link to={`/product/${p.id}`} key={p.id} className="mega-menu-item" onClick={() => setActiveMegaMenu(null)}>
                                 <div className="mega-color-box" style={{ backgroundColor: p.bgColor }}>

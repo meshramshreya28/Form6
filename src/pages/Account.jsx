@@ -182,7 +182,7 @@ const Account = () => {
               <div style={{ flexGrow: 1, height: '1px', backgroundColor: 'var(--border-color)' }} />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <button 
                 onClick={() => logIn('google-user@domain.com', 'social')}
                 style={{
@@ -307,7 +307,7 @@ const Account = () => {
         </div>
 
         {/* Dashboard Grid split */}
-        <div style={{
+        <div className="tablet-stack" style={{
           display: 'grid',
           gridTemplateColumns: '1.8fr 1fr',
           gap: '3rem',

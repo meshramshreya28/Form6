@@ -93,7 +93,7 @@ const Blog = () => {
       {/* Blog Grid */}
       <section className="blog-grid-section" style={{ padding: '3rem 2rem 6rem 2rem' }}>
         <div className="container">
-          <div style={{
+          <div className="mobile-stack" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '2.5rem'

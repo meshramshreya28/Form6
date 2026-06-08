@@ -131,7 +131,7 @@ const OrderTracking = () => {
         </div>
 
         {/* Tracking Details Grid */}
-        <div style={{
+        <div className="tablet-stack" style={{
           display: 'grid',
           gridTemplateColumns: '1.3fr 1fr',
           gap: '3rem',
@@ -364,7 +364,7 @@ const OrderTracking = () => {
               </div>
 
               {/* Billing and Shipping details */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem', fontSize: '0.8rem' }}>
+              <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem', fontSize: '0.8rem' }}>
                 <div>
                   <h4 style={{ margin: '0 0 0.5rem 0', textTransform: 'uppercase', borderBottom: '1px solid #eaeaea', paddingBottom: '0.25rem' }}>Billing / Delivery Address</h4>
                   <strong>{order.customerName}</strong><br />

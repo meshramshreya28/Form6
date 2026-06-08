@@ -64,7 +64,7 @@ const Science = () => {
         <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '140%', background: 'radial-gradient(ellipse at center, rgba(0,74,58,0.04) 0%, rgba(250,244,240,0) 70%)', zIndex: 1, pointerEvents: 'none' }} />
         
         <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+          <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             <div>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid var(--border-color)', borderRadius: '100px', padding: '0.5rem 1.25rem', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '2rem', background: 'white', boxShadow: '0 4px 10px rgba(0,0,0,0.02)' }}>
                 <Beaker size={14} color="var(--accent-primary)" />
@@ -87,7 +87,7 @@ const Science = () => {
       <section className="science-chart-section" style={{ padding: '8rem 2rem', background: '#fff' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '5rem', alignItems: 'center' }}>
+          <div className="tablet-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '5rem', alignItems: 'center' }}>
             
             <div className="science-chart-info" style={{ padding: '2rem 0' }}>
               <h2 style={{ fontSize: '2.5rem', fontWeight: '400', marginBottom: '2.5rem', lineHeight: '1.15', letterSpacing: '-0.02em' }}>Why Standard <span style={{ color: '#004A3A', fontStyle: 'italic' }}>Powders</span> Aren't Enough</h2>
@@ -249,7 +249,7 @@ const Science = () => {
             </p>
           </div>
 
-          <div className="ingredients-db-grid" style={{
+          <div className="ingredients-db-grid tablet-stack" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 2fr',
             border: '1px solid var(--border-color)',
@@ -304,7 +304,7 @@ const Science = () => {
               </span>
               <h3 style={{ fontSize: '2.5rem', fontWeight: '400', color: 'var(--text-primary)', marginBottom: '3rem', letterSpacing: '-0.02em' }}>{selectedIngredient.name}</h3>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2.5rem', marginBottom: '1.5rem' }}>
+              <div className="mobile-stack-xs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2.5rem', marginBottom: '1.5rem' }}>
                 <div style={{ paddingLeft: '1.5rem', borderLeft: '2px solid var(--text-primary)' }}>
                   <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.5, marginBottom: '0.5rem', fontWeight: '600' }}>Clinical Dosage</h4>
                   <p style={{ fontSize: '1.75rem', fontWeight: '400', color: 'var(--text-primary)', margin: 0 }}>{selectedIngredient.dose}</p>
@@ -335,7 +335,7 @@ const Science = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem' }}>
+          <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem' }}>
             
             {/* Board member 1 */}
             <div style={{

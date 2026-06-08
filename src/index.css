@@ -3396,3 +3396,38 @@ body {
 .scale-up-node {
   animation: searchPulse 1s infinite alternate;
 }
+
+/* =====================
+   RESPONSIVE MOBILE UTILITIES
+   ===================== */
+
+/* General utility to stack flex/grid children on mobile */
+@media (max-width: 900px) {
+  .tablet-stack {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-stack {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+  
+  .mobile-stack-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Target specific split layout elements where inline styles cause issues */
+  .responsive-split-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .mobile-stack-xs {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+}

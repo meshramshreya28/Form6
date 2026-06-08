@@ -300,7 +300,7 @@ const AdminDashboard = () => {
         {activeTab === 'analytics' && (
           <div style={{ display: 'grid', gap: '2.5rem' }}>
             {/* Metric widgets grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
+            <div className="mobile-stack-xs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
               <div style={{ background: 'white', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '1.5rem', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>
                 <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.6 }}>Total Revenue</span>
                 <h3 style={{ fontSize: '2.25rem', fontWeight: '700', color: '#004A3A', margin: '0.5rem 0' }}>€{totalRevenue.toFixed(2)}</h3>
@@ -434,7 +434,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem', fontSize: '0.8rem' }}>
+              <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2.5rem', fontSize: '0.8rem' }}>
                 <div>
                   <h4 style={{ margin: '0 0 0.5rem 0', textTransform: 'uppercase', borderBottom: '1px solid #eaeaea', paddingBottom: '0.25rem' }}>Billing / Delivery Address</h4>
                   <strong>{selectedInvoiceOrder.customerName}</strong><br />

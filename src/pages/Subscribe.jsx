@@ -70,7 +70,7 @@ const Subscribe = () => {
       {/* Section 1: Build Routine Split */}
       <section style={{ padding: '8rem 2rem', background: 'var(--bg-primary)' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '5rem', alignItems: 'center' }}>
+          <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '5rem', alignItems: 'center' }}>
             <div style={{ borderRadius: '24px', overflow: 'hidden', aspectRatio: '4/5', position: 'relative' }}
               onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}
@@ -109,7 +109,7 @@ const Subscribe = () => {
       {/* Section 3: Hero Split (Subscriptions) */}
       <section style={{ padding: '8rem 2rem', background: '#fff' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '5rem', alignItems: 'center' }}>
+          <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '5rem', alignItems: 'center' }}>
             <div style={{ padding: '2rem 0', order: 2 }}>
               <span style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.1em', color: 'var(--accent-primary)', textTransform: 'uppercase', marginBottom: '1.5rem', display: 'block' }}>• Subscriptions</span>
               <h1 style={{ fontSize: '3.5rem', fontWeight: '400', letterSpacing: '-0.03em', lineHeight: '1.1', marginBottom: '1.5rem' }}>Your Daily Dose,<br /><span style={{ fontStyle: 'italic', color: '#004A3A' }}>Refreshed.</span></h1>
@@ -137,7 +137,7 @@ const Subscribe = () => {
       {/* Section 4: Subscription FAQ */}
       <section style={{ padding: '10rem 2rem', background: 'var(--bg-primary)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'flex-start' }}>
+          <div className="mobile-stack" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'flex-start' }}>
             <div style={{ position: 'sticky', top: '120px' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.1em', color: 'var(--accent-primary)', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>• Support</span>
               <h2 style={{ fontSize: '3rem', fontWeight: '400', letterSpacing: '-0.03em', lineHeight: '1.1' }}>Subscription<br/>FAQ</h2>
